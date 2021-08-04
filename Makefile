@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-g -Wall -Werror
+CFLAGS=-g -Wall # -Werror
 
 INCLUDE=src/include
 LIB=src/lib
@@ -9,5 +9,8 @@ UTILS: ifconfig # will add more
 
 all: $(UTILS)
 
-ifconfig: $(INCLUDE)/ifconfig/*.c $(INCLUDE)/ifconfig/*.h
-	$(CC) $(CFLAGS) -o $(BIN)/$@ $<
+ifconfig: $(INCLUDE)/ifconfig/ifconfig.c $(LIB)/ifctl.o
+	$(CC) $(CFLAGS) -o $(BIN)/$@ $^ 
+
+$(LIB)/ifctl.o: $(INCLUDE)/ifconfig/ifctl.c
+	$(CC) $(CFLAGS) -c -o $@ $^
