@@ -18,7 +18,7 @@
 #include <sys/ioctl.h>
 #include <linux/netlink.h>
 #include <sys/types.h>
-#include <sys/socket.h>
+#include <netinet/in.h>
 
 // some basic flags to use
 enum {
@@ -55,6 +55,9 @@ struct if_list {
 
 // return the name of founding interfaces e.g.: eth0
 struct if_list* get_if_list(struct if_list *ifl, uint8_t _flags);
+
+// free the if_list structure
+void if_list_free(struct if_list *ifl);
 
 // return information about the interface
 struct if_info* get_if_info(struct if_info *ifi, uint8_t _flags);

@@ -1,40 +1,23 @@
-/**
- * Author: FallAngel
- * Copyright © 2021
- * 
- * ifconfig implementation
-*/
-
 #include "ifctl.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <getopt.h>
-
-#include <sys/socket.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include <stddef.h>
+#include <sys/socket.h>
 
-# ifndef VERSION
-#   define VERSION "0.1-beta"
-# endif
-
-static const struct option long_options[] = {
-    {"verbose", no_argument, NULL, 'v'},
-    {"help", no_argument, NULL, 'h'},
-    {"version", no_argument, NULL, 's'}
-};
-
-static uint8_t _flags = 0;
-
-static __attribute__((noreturn)) void usage(void)
+// return the name of founding interfaces e.g.: eth0
+struct if_list* get_if_list(struct if_list *ifl, uint8_t _flags)
 {
-    // show help here
-    exit(-EXIT_FAILURE);
+    return NULL;
 }
 
-int main(int argc, char **argv)
+void if_list_free(struct if_list *ifl)
 {
-    if (argc == 1) usage();
-    return 0;    
+
+}
+
+// return information about the interface
+struct if_info* get_if_info(struct if_info *ifi, uint8_t _flags)
+{
+    return NULL;
 }
