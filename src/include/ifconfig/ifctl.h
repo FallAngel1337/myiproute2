@@ -56,7 +56,7 @@ struct if_list {
 // return the name of founding interfaces e.g.: eth0
 struct if_list* get_if_list(struct if_list *ifl, uint8_t _flags);
 
-// free the if_list structure
+// free the if_list structure memebers
 void if_list_free(struct if_list *ifl);
 
 // return information about the interface
