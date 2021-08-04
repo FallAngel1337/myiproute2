@@ -15,6 +15,10 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+# ifndef VERSION
+#   define VERSION "0.1-beta"
+# endif
+
 static const struct option long_options[] = {
     {"verbose", no_argument, NULL, 'v'},
     {"help", no_argument, NULL, 'h'},
