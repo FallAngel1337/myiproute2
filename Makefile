@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-g -Wall # -Werror
+CFLAGS=-g -w
 
 INCLUDE=src/include
 LIB=src/lib
@@ -14,3 +14,6 @@ ifconfig: $(INCLUDE)/ifconfig/ifconfig.c $(LIB)/ifctl.o
 
 $(LIB)/ifctl.o: $(INCLUDE)/ifconfig/ifctl.c
 	$(CC) $(CFLAGS) -c -o $@ $^
+
+clean:
+	$(RM) -r $(LIB)/* $(BIN)/*

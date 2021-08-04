@@ -28,7 +28,10 @@ enum {
     SET_DOWN = 0x8, /* set interace down */
 
     IGNORE_LOOPBACK = 0x10, /* ignore the loopback interface */
-    IF_ALL = 0x20, /* retrieve information about all found interfaces */
+
+    IF_LIST = 0x20, /* list all found interfaces */
+    IF_INFO = 0x40, /* information about one single interface */
+    IF_ALL = 0x80, /* retrieve information about all found interfaces */
 };
 
 struct if_info {

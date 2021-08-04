@@ -28,10 +28,12 @@ struct if_list* get_if_list(struct if_list *ifl, uint8_t _flags)
     }
 
     ifl->if_len = ifc.ifc_len/sizeof(struct ifreq);
+    if (_flags&IGNORE_LOOPBACK) ifl->if_len--;
     ifl->if_name = malloc(ifl->if_len * sizeof(char*));
 
     for (int i=0; i < ifl->if_len;) {
         ifl->if_name[i] = malloc(IF_NAMESIZE);
+        
         if (ioctl(sock, SIOCGIFFLAGS, ifc.ifc_req) < 0) {
             perror("something gone wrong");
             return NULL; 
@@ -46,6 +48,7 @@ struct if_list* get_if_list(struct if_list *ifl, uint8_t _flags)
             strncpy(ifl->if_name[i], ifc.ifc_req->ifr_name, IF_NAMESIZE);
             i++;
         }
+
         ifc.ifc_req++;
     }
 
