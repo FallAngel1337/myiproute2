@@ -16,4 +16,4 @@ $(LIB)/ifctl.o: $(INCLUDE)/ifconfig/ifctl.c
 	$(CC) $(CFLAGS) -c -o $@ $^
 
 clean:
-	$(RM) -r $(LIB)/* $(BIN)/*
+	@ $(RM) -r $(LIB)/* $(BIN)/*
